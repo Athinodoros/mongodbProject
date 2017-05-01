@@ -8,6 +8,8 @@
 function getTwitterUsersLinkTheMost(db) {
     return db.collection('tweets').find({}).toArray();//TODO: fix the query q2
 }
+
+
 module.exports = {
     getTwitterUsersLinkTheMost:getTwitterUsersLinkTheMost
 };
