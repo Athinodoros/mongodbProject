@@ -1,7 +1,5 @@
 # mongodbProject
-school project DB
-
-    by
+school project DB 
     
 Athinodoros Sgouromalis, Frederik Alexander Vygg Larsen, Martin Macej
 
