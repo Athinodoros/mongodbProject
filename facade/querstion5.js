@@ -4,28 +4,14 @@
  */
 
 function getMostGrumpyUsers(db){
-	return db.collection('tweets').aggregate(
-			[
-				{$group: {_id: "$user", score: {$sum: "$polarity"}, count: {$sum: 1}}},
-				{$project: {"_id": 1, "count": 1, score: 1, avg: {
-				    $cond: { if: { $eq: [ "$score", 0 ] }, then: 0, else: {$divide: ["$count", "$score"]} } }}},
-				{$sort: {"avg": 1, "count": -1}},
-				{ "$limit" : 5 }
-				],
-				{allowDiskUse: true});
-}
+	return db.collection('tweets').aggregate([{ $match: {polarity:0 } },{ $group: { _id: '$user', count: {$sum: 1}}},{$sort: {count: -1} } , { $limit: 5 }]).toArray();
+
+
 
 
 function getMostHappyUsers(db){
-	return db.collection('tweets').aggregate(
-			[
-				{$group: {_id: "$user", score: {$sum: "$polarity"}, count: {$sum: 1}}},
-				{$project: {"_id": 1, "count": 1, score: 1, avg: {
-				    $cond: { if: { $eq: [ "$score", 0 ] }, then: 0, else: {$divide: ["$count", "$score"]} } }}},
-				{$sort: {"avg": -1, "count": -1}},
-				{ "$limit" : 5 }
-				],
-				{allowDiskUse: true});
+	return db.collection('tweets').aggregate([{ $match: {polarity:4 } },{ $group: { _id: '$user', count: {$sum: 1}}},{$sort: {count: -1} } , { $limit: 5 }]).toArray();
+
 }
 
 module.exports = {
