@@ -9,6 +9,10 @@ function getMostMentionedUsers(db){
     return db.collection('tweets').find({}).toArray(); //TODO: fix the query q3
 }
 
+
+
+
+
 module.exports = {
     getMostMentionedUsers:getMostMentionedUsers
 };
