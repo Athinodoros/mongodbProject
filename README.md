@@ -7,7 +7,7 @@ Athinodoros Sgouromalis, Frederik Alexander Vygg Larsen, Martin Macej
 
 1.  How many Twitter users are in our database?
 
-    659777
+    659774
 
 2.  Which Twitter users link the most to other Twitter users? (Provide the top ten.)
     1.  lost_dog
